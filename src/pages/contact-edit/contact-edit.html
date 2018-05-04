@@ -1,0 +1,67 @@
+<!--
+  Generated template for the ContactEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label stacked>Nome Produto</ion-label>
+      <ion-input type="text" formControlName="nameProduto"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.nameProduto.valid && (form.controls.nameProduto.dirty || form.controls.nameProduto.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.nameProduto.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Código Produto</ion-label>
+      <ion-input type="text" formControlName="codProturo"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.codProturo.valid && (form.controls.codProturo.dirty || form.controls.codProturo.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.codProturo.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Quantidade Produto</ion-label>
+      <ion-input type="text" formControlName="qtdProturo"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.qtdProturo.valid && (form.controls.qtdProturo.dirty || form.controls.qtdProturo.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.qtdProturo.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Data Vencimento Produto</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" max="2030" type="text" formControlName="dataVencimento"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.dataVencimento.valid && (form.controls.dataVencimento.dirty || form.controls.dataVencimento.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.dataVencimento.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+  </form>
+</ion-content>
